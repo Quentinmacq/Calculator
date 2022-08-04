@@ -1,24 +1,4 @@
-const buttons = [
-    "(",
-    ")",
-    "C",
-    "7",
-    "8",
-    "9",
-    "/",
-    "4",
-    "5",
-    "6",
-    "*",
-    "1",
-    "2",
-    "3",
-    "-",
-    "0",
-    ".",
-    "=",
-    "+",
-];
+
 
 const key = [...document.querySelectorAll('.buttons')];
 const keylist = key.map(key => key.dataset.key);
@@ -42,11 +22,17 @@ const calc= (value) => {
         case "delete":
           Result.value = "";
           break;
-        
-
-          
-           
-        }
+          case "=":
+            const somme = (str) => {
+                return Function("return " + str)();
+              };
+              Result.value = somme(Result.value);
+            break;       
+            }}
+        else {
+            const indexkeylist = keylist.indexOf(value);
+            const key = key[indexkeylist];
+            Result.value += key.innerHTML;
     }
 }
 
